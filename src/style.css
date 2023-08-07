@@ -1,0 +1,115 @@
+:root{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    line-height: 1.5em;
+    
+    --color-primary: teal;
+    --color-primary-darker: rgb(27, 86, 86);
+    --color-secondary: magenta;
+    --color-primary-light: white;
+    --color-secondary-light: white;
+}
+html, body, h1, h2, h3, h4, h5, h6, ul, li{
+    margin: 0;
+    padding: 0;
+}
+/* Utility*/
+.card{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 1.5em 2em;
+    box-shadow: 3px 5px 6px 0px rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    background-color: var(--primary-font-color-white);
+    position: relative;
+}
+/* Layout */
+.page-container{
+    display: grid;
+    grid-template: auto 5fr 1fr / [horizontal-start]1fr [horizontal-mid]8fr[horizontal-end];
+    min-height: 100svh;
+}
+.header::before{
+    content: url('#');
+}
+.header .burger-menu{
+    display: none;
+}
+.header{
+    grid-column: 1 / span 3;
+    background-color: var(--color-primary);
+    color: var(--color-primary-light);
+    font-size: 1.2rem;
+    padding-block: 1.5em;
+    display: flex;
+    justify-content: center;
+}
+.sidebar{
+    background-color: var(--color-primary-darker);
+    color: var(--color-secondary-light);
+    display: flex;
+    justify-content: center;
+    min-height: 100%;
+    min-width: 220px;
+    font-size: 1.2rem;
+}
+.sidebar ul{
+    list-style: none;
+    margin-top: 2em;
+}
+.sidebar li+li{
+    margin-top: .5em;
+}
+.sidebar li:hover:not(li[selected]){
+    cursor: pointer;
+    color: var(--color-secondary);
+    transition: 100ms;
+    scale: 110%;
+}
+.sidebar li[selected]{
+    cursor: pointer;
+    color: var(--color-secondary);
+    border-bottom: 2px solid var(--color-secondary);
+}
+.content{
+    display: grid;
+    grid-column: 2 / horizontal-end;
+    gap: .5em;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 20vw));
+}
+.content .card{
+    height: fit-content;
+}
+.card input[type='checkbox']{
+    position: absolute;
+    right:30px;
+    top: 30px;
+}
+footer{
+    background-color: var(--color-secondary);
+    grid-column: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 610px) {
+    .header{
+        position: sticky;
+        font-size: 1rem;
+    }
+    .header .burger-menu{
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        padding-left: 1em;
+    }
+    .sidebar{
+        display: none;
+    }
+    .content{
+        grid-column: horizontal-start / horizontal-end;
+        justify-content: center;
+        align-content: center;
+    }
+}
