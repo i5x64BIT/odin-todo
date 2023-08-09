@@ -1,3 +1,5 @@
+import form from '../components/newTaskForm'
+
 export default class{
     renderContent = taskArr => {
         const content = document.querySelector('.content');
@@ -20,5 +22,22 @@ export default class{
                 content.appendChild(card);
             }
         }
+    }
+    renderTaskForm = () => {
+        document.querySelector('.page-container').appendChild(form());
+    }
+    dynamicElemRemoval(child, childContainer, childContainerParent){
+        const removeChild = () => {
+            childContainerParent.removeChild(childContainer);
+        }
+        childContainer.addEventListener('click', removeChild); //Initial remove if clicked outside
+        child.onmouseover = child.onmouseout = e => {
+            if(e.type === 'mouseout'){ //Remove if clicked outside
+                childContainer.addEventListener('click', removeChild );
+            }
+            if(e.type === 'mouseover'){ // Keep if clicked inside
+                childContainer.removeEventListener('click', removeChild);
+            }
+        };
     }
 };

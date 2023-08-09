@@ -9,9 +9,15 @@
     --color-primary-light: white;
     --color-secondary-light: white;
 }
-html, body, h1, h2, h3, h4, h5, h6, ul, li{
+html, body, h1, h2, h3, h4, h5, h6, ul, li, form, input, textarea, legend{
     margin: 0;
     padding: 0;
+}
+input, textarea{
+    appearance: none;
+}
+textarea{
+    resize: none;
 }
 /* Utility*/
 .card{
@@ -92,6 +98,68 @@ footer{
     align-items: center;
     justify-content: center;
     padding-block: 2em;
+}
+.form-container{
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .4);
+    height: 100%;
+    width: 100%;
+}
+.form-container form{
+    background-color: var(--color-primary);
+    color: var(--color-primary-light);
+    border-radius: 5px;
+    padding: 1.5em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+form .inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5em;
+    margin-inline: auto;
+    max-width: 90%;
+}
+.form-container form > div:first-child{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .5em;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3em;
+}
+form legend{
+    padding-left:.2em ;
+}
+form input, form textarea{
+    font-size: 1rem;
+    padding: .3em .5em;
+    border-radius: 3px;
+    border: 1px solid var(--color-primary-darker);
+    max-width: 100%;
+}
+.form-container button:last-child{
+    width: 25%;
+    padding: .5em .3em;
+    font-size: 1rem;
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-light);
+    border: 1px solid var(--color-secondary);
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1em;
+    border-radius: 3px;
+    margin-top: 1em;
+    transition: 80ms;
+}
+.form-container button:last-child:hover{
+    background-color: var(--color-primary-light);
+    color: var(--color-secondary);
 }
 
 @media screen and (max-width: 610px) {
