@@ -1,4 +1,11 @@
+import Task from "../models/Task";
+import activeTasks from "../pages/activeTasks";
+import Render from "../util/Render";
+import Storage from '../util/Storage'
+
 export default function(){
+    const storage = new Storage();
+    const render = new Render();
     const pageContainer = document.querySelector('.page-container');
 
     const formContainer = document.createElement('div');
@@ -12,14 +19,28 @@ export default function(){
             <input type="datetime-local" id="due-date">
             <textarea id="description" placeholder="Description" cols="45" rows="2"></textarea>
         </div>
-        <button>Add task</button>
+        <button id="submit">Add task</button>
     `;
     formContainer.appendChild(form);
     
     const btnClose = form.querySelector('.close');
-    btnClose.addEventListener('click', function(){
-        pageContainer.removeChild(formContainer);
-    });
+    const btnSubmit = form.querySelector('button#submit');
+
+    //Button Handler
+    btnClose.onclick = btnSubmit.onclick = function(e){
+        if( e.target === btnClose){
+            pageContainer.removeChild(formContainer);
+        }
+        if( e.target === btnSubmit){
+            const eTitle = form.querySelector('input#title');
+            const eDate = form.querySelector('input#due-date');
+            const eDesc = form.querySelector('textarea#description');
+
+            
+            storage.addTask(Task( eTitle.value, eDate.value, eDesc.value ));
+            render.renderPage(activeTasks); //Re-render content to include new tasks
+        }
+    }
 
     return formContainer;
 }

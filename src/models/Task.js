@@ -10,7 +10,7 @@ export default (title, dueDate, description) => {
         return true; 
     }
 
-    Task.setDueDate = date => Task.date = date;
+    Task.setDueDate = dueDate => Task.dueDate = dueDate;
     Task.setDescription = description => Task.description = description;
     Task.setTitle = title => Task.title = title;
     Task.toggleDone = () => Task.isDone ? Task.isDone = false : Task.isDone = true;
