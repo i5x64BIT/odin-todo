@@ -2,12 +2,10 @@ import './style.css';
 import newTaskForm from './components/newTaskForm';
 import Render from './util/Render';
 import activeTasks from './pages/activeTasks';
-import Storage from './util/Storage';
 
 
 
 const render = new Render();
-const strg = new Storage();
 render.renderPage(activeTasks);
  
 //Form Creation

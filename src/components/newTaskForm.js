@@ -37,7 +37,7 @@ export default function(){
             const eDesc = form.querySelector('textarea#description');
 
             
-            storage.addTask(Task( eTitle.value, eDate.value, eDesc.value ));
+            storage.addTask(new Task( eTitle.value, eDate.value, eDesc.value ));
             render.renderPage(activeTasks); //Re-render content to include new tasks
         }
     }

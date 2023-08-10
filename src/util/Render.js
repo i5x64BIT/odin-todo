@@ -19,7 +19,7 @@ export default class{
             }
         };
     }
-    renderPage(page){
-        document.querySelector('.content').innerHTML = page;
+    renderPage(content){
+        this.pageContainer.appendChild(content);
     }
 };
