@@ -8,7 +8,6 @@ export default class{
     }
     getTaskArray = () => {
         let arr = JSON.parse(localStorage.getItem('taskArr'));
-        console.log(arr)
         arr = arr.map(elem => new Task(elem.title, elem.dueDate, elem.description, elem.isDone));
         return arr;
     };
