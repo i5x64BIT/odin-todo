@@ -1,4 +1,4 @@
-import Render from '../util/Render'
+import Storage from '../util/Storage';
 
 export default function(task){
     const card = document.createElement('div');
@@ -13,6 +13,7 @@ export default function(task){
     `;
     card.querySelector('.title').addEventListener('click', () => {
         const doneStatus = task.toggleDone();
+        (new Storage()).updateTask(task.id, task)
         card.setAttribute('checked', doneStatus);
     })
     return card;

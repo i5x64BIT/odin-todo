@@ -1,6 +1,11 @@
+import Storage from "../util/Storage";
 export default class Task{
-    constructor(title, dueDate = null, description = null, isDone = false){
-        if(!title || typeof title !== 'string') console.error('Illegal title was provided')
+    constructor(title, dueDate = null, description = null, isDone = false, id = (new Storage()).getTaskID()){
+        if(!title || typeof title !== 'string') {
+            console.error('Illegal title was provided');
+            return;
+        }
+        this.id = id;
         this.title = title;
         this.dueDate = dueDate;
         this.description = description;
