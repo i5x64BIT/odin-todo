@@ -36,9 +36,9 @@ export default function(){
             const eDate = form.querySelector('input#due-date');
             const eDesc = form.querySelector('textarea#description');
 
-            
-            storage.addTask(new Task( eTitle.value, eDate.value, eDesc.value ));
-            render.renderPage(activeTasks); //Re-render content to include new tasks
+            const task = new Task( eTitle.value, eDate.value, eDesc.value );
+            storage.addTask(task);
+            render.renderPage(activeTasks);
         }
     }
 
