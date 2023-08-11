@@ -86,7 +86,20 @@ textarea{
     grid-template-rows: 1fr 1fr;
     grid-auto-rows: 1fr;
     justify-content: center;
-    align-items: center;
+}
+.content a{
+    color: cadetblue;
+    cursor: pointer;
+}
+.content a:hover{
+    border-bottom: 1px solid cadetblue;
+}
+.content > p:only-of-type{
+    grid-area: 1/1 / 4/4;
+    opacity: .8;
+    display: flex;
+    display: inline-block;
+    margin: auto;
 }
 .card .title:hover{
     user-select: none;
