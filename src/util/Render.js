@@ -19,7 +19,9 @@ export default class{
             }
         };
     }
-    renderPage(content){
-        this.pageContainer.appendChild(content);
+    renderPage(contentFunction){
+        const pastContent = document.querySelector('.content')
+        if(pastContent) this.pageContainer.removeChild(pastContent);
+        this.pageContainer.appendChild(contentFunction());
     }
 };
