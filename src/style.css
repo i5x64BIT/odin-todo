@@ -96,7 +96,13 @@ textarea{
 }
 .card[checked="true"]{
     opacity: .5;
+}
+.card[checked="true"] .title, .card[checked="true"] p{
     text-decoration: line-through;
+}
+.card[checked="true"] .title:hover{
+    text-decoration: none;
+    cursor: pointer;
 }
 footer{
     background-color: var(--color-primary);
