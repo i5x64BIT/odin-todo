@@ -21,3 +21,6 @@ Here I set out to reinforce the following skills:
     - Change detection is done using [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver)
 * No id on refresh:
     - `localStorage` has an extra parameter of `lastID` stored, it is being dictated by the last `Task` created.
+* `keydown` and `focusout` events collision
+    - When an enter key was pressed, the page reloaded. On page reload, the `focusout` event fired.
+    the solution is rather simple. If an `enter key` is pressed, remove the `focusout` listener.
