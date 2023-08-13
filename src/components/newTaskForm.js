@@ -16,10 +16,10 @@ export default function(){
         <div><legend>Add A New Task</legend><img src="#" alt="X" class="close" style="cursor: pointer;"></div>
         <div class="inputs">
             <input type="text" id="title" placeholder="Title*" required>
-            <input type="datetime-local" id="due-date">
+            <input type="date" id="due-date">
             <textarea id="description" placeholder="Description" cols="45" rows="2"></textarea>
+            <button id="submit" class="btn">Add task</button>
         </div>
-        <button id="submit">Add task</button>
     `;
     formContainer.appendChild(form);
     
