@@ -3,6 +3,7 @@ import newTaskForm from './components/newTaskForm';
 import Render from './util/Render';
 import activeTasks from './pages/activeTasks';
 import completeTasks from './pages/completeTasks';
+import allTasks from './pages/allTasks';
 
 const render = new Render();
 render.renderPage(activeTasks);
@@ -27,6 +28,11 @@ document.querySelector('li[name="New Task"]')
     )
 })
 
+document.querySelector('li[name="All Tasks"]')
+.addEventListener('click', function(){
+    render.renderPage(allTasks);
+    setSelected.call(this);
+})
 document.querySelector('li[name="Active Task"]')
 .addEventListener('click', function(){
     render.renderPage(activeTasks);
