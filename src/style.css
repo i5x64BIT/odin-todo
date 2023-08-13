@@ -65,7 +65,7 @@ textarea{
 .header::before{
     content: url('#');
 }
-.header .burger-menu{
+.burger-menu{
     display: none;
 }
 .header{
@@ -97,7 +97,7 @@ textarea{
     cursor: pointer;
     color: var(--color-secondary);
     transition: 100ms;
-    scale: 110%;
+    font-size: 1.1em;
 }
 .sidebar li[selected]{
     cursor: pointer;
@@ -217,14 +217,20 @@ form input, form textarea{
 
 @media screen and (max-width: 610px) {
     .header{
-        position: sticky;
+        position: relative;
         font-size: 1rem;
     }
-    .header .burger-menu{
+    .burger-menu{
+        background-image: url('./assets/icons/burger-menu.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        min-width: 50%;
+        min-height: 50%;
         display: inline-block;
         position: absolute;
-        left: 0;
-        padding-left: 1em;
+        left: 1em;
+        top: 25%;
+        z-index: 10;
     }
     .sidebar{
         display: none;
@@ -233,5 +239,27 @@ form input, form textarea{
         grid-column: horizontal-start / horizontal-end;
         justify-content: center;
         align-content: center;
+    }
+    .sidebar[open]{
+        display: block;
+        position: fixed;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        min-height: fit-content;
+        z-index: 4;
+    }
+    .sidebar li{
+        padding-block: 1em;
+        border-bottom: 1px solid rgba(0, 0, 0, .15);
+    }
+    .form-container{
+        max-width: 100vw;
+    }
+    .form-container form{
+        max-width: 80vw;
+    }
+    .form-container button:last-child{
+        width: 50%;
     }
 }
