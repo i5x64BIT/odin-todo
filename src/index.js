@@ -4,9 +4,10 @@ import Render from './util/Render';
 import activeTasks from './pages/activeTasks';
 import completeTasks from './pages/completeTasks';
 import allTasks from './pages/allTasks';
+import burgerMenu from './components/burgerMenu';
+import './assets/icons/burger-menu.svg'
 
 const render = new Render();
-render.renderPage(activeTasks);
 const setSelected = function (){
     for(let elem of document.querySelectorAll('.sidebar li')){
         elem.removeAttribute('selected');
@@ -43,3 +44,7 @@ document.querySelector('li[name="Complete Task"]')
     render.renderPage(completeTasks);
     setSelected.call(this);
 })
+
+burgerMenu(); // Add burger menu functionality
+
+document.querySelector('li[name="All Tasks"]').click()
