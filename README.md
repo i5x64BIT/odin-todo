@@ -24,3 +24,6 @@ Here I set out to reinforce the following skills:
 * `keydown` and `focusout` events collision
     - When an enter key was pressed, the page reloaded. On page reload, the `focusout` event fired.
     the solution is rather simple. If an `enter key` is pressed, remove the `focusout` listener.
+
+#### Credit
+[Hamburger menu icon](https://www.svgrepo.com/svg/145176/menu-symbol-of-three-parallel-lines)
